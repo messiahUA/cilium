@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: php
+spec:
+  ports:
+  - name: php
+    port: 9090
+    protocol: TCP
+    targetPort: 9000
+  selector:
+    app.kubernetes.io/instance: php-fpm
+    app.kubernetes.io/name: php-fpm
+  type: ClusterIP
